@@ -54,6 +54,9 @@ python server.py --port 7860
 
 # Load a model at startup
 python server.py --model your-model-name
+
+# My usual launch command (listen on all interfaces for local network access)
+python server.py --api --listen --port 7860
 ```
 
 ## Docker
