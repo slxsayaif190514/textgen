@@ -35,7 +35,8 @@ def parse_args():
                         help='Port to listen on')
     parser.add_argument('--share', action='store_true',
                         help='Create a public Gradio share link')
-    parser.add_argument('--auto-launch', action='store_true', default=True,
+    # Changed default to False - I don't want the browser popping open every time
+    parser.add_argument('--auto-launch', action='store_true', default=False,
                         help='Automatically open the browser on startup')
 
     # API arguments
@@ -70,34 +71,4 @@ def parse_args():
 
 def check_requirements():
     """Check that required directories and files exist."""
-    required_dirs = ['models', 'extensions', 'characters', 'presets', 'prompts']
-    for d in required_dirs:
-        Path(d).mkdir(parents=True, exist_ok=True)
-        logger.debug(f'Ensured directory exists: {d}')
-
-
-def main():
-    args = parse_args()
-
-    logger.info('Starting textgen web UI')
-    check_requirements()
-
-    # Set environment variables based on args
-    if args.cpu:
-        os.environ['CUDA_VISIBLE_DEVICES'] = ''
-        logger.info('CPU-only mode enabled')
-
-    listen_host = '0.0.0.0' if args.listen else '127.0.0.1'
-    logger.info(f'Server will listen on {listen_host}:{args.listen_port}')
-
-    if args.model:
-        logger.info(f'Will load model: {args.model}')
-    else:
-        logger.info('No model specified, user will select from UI')
-
-    # TODO: Initialize the Gradio UI and model loader
-    logger.info('textgen server initialized — UI coming soon')
-
-
-if __name__ == '__main__':
-    main()
+ 
