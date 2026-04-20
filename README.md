@@ -57,6 +57,9 @@ python server.py --model your-model-name
 
 # My usual launch command (listen on all interfaces for local network access)
 python server.py --api --listen --port 7860
+
+# With a specific model and GPU memory limit (useful on my 8GB card)
+python server.py --api --listen --port 7860 --model mistral-7b-instruct --gpu-memory 7
 ```
 
 ## Docker
