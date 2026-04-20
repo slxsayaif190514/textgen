@@ -31,7 +31,8 @@ def parse_args():
     # Server arguments
     parser.add_argument('--listen', action='store_true',
                         help='Listen on 0.0.0.0 instead of 127.0.0.1')
-    parser.add_argument('--listen-port', type=int, default=7860,
+    # Changed default port to 7861 to avoid conflicts with other Gradio apps I run
+    parser.add_argument('--listen-port', type=int, default=7861,
                         help='Port to listen on')
     parser.add_argument('--share', action='store_true',
                         help='Create a public Gradio share link')
@@ -57,7 +58,8 @@ def parse_args():
                         help='Max GPU memory (in GiB) per GPU')
     parser.add_argument('--cpu-memory', type=int, default=None,
                         help='Max CPU memory (in GiB) to use for offloading')
-    parser.add_argument('--threads', type=int, default=0,
+    # Defaulting to 8 threads since that works best on my machine (Ryzen 7 5800X)
+    parser.add_argument('--threads', type=int, default=8,
                         help='Number of threads for CPU inference (0 = auto)')
 
     # UI arguments
@@ -69,6 +71,4 @@ def parse_args():
     return parser.parse_args()
 
 
-def check_requirements():
-    """Check that required directories and files exist."""
- 
+def
