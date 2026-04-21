@@ -60,6 +60,9 @@ python server.py --api --listen --port 7860
 
 # With a specific model and GPU memory limit (useful on my 8GB card)
 python server.py --api --listen --port 7860 --model mistral-7b-instruct --gpu-memory 7
+
+# Low VRAM mode - handy when running other stuff in the background
+python server.py --api --listen --port 7860 --model mistral-7b-instruct --gpu-memory 5 --cpu-memory 8
 ```
 
 ## Docker
