@@ -43,7 +43,8 @@ def parse_args():
     # API arguments
     parser.add_argument('--api', action='store_true',
                         help='Enable the API extension')
-    parser.add_argument('--api-port', type=int, default=5000,
+    # Changed default API port to 5001 since 5000 conflicts with AirPlay on macOS
+    parser.add_argument('--api-port', type=int, default=5001,
                         help='Port for the API server')
     parser.add_argument('--api-key', type=str, default='',
                         help='API key for authentication (leave empty to disable)')
@@ -65,10 +66,4 @@ def parse_args():
     # UI arguments
     parser.add_argument('--dark-theme', action='store_true',
                         help='Enable dark theme by default')
-    parser.add_argument('--extensions', type=str, nargs='+', default=None,
-                        help='Extensions to load at startup')
-
-    return parser.parse_args()
-
-
-def
+    parse
