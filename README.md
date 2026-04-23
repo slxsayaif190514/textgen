@@ -63,6 +63,9 @@ python server.py --api --listen --port 7860 --model mistral-7b-instruct --gpu-me
 
 # Low VRAM mode - handy when running other stuff in the background
 python server.py --api --listen --port 7860 --model mistral-7b-instruct --gpu-memory 5 --cpu-memory 8
+
+# ExLlamaV2 loader tends to be faster for quantized models on my setup
+python server.py --api --listen --port 7860 --model mistral-7b-instruct --loader exllamav2 --gpu-memory 7
 ```
 
 ## Docker
